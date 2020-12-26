@@ -39,8 +39,8 @@ body {
 	--newtab-topsites-label-color: #F3F3F2 !important; /*#F3F3F2*/
 	--trailhead-cards-background-color: #12120F !important;
 	--trailhead-header-text-color: #D4DEA9 !important;
-	background-image: url(dark_geometric.png) !important ;
-	background-size: cover !important ;
+	background-image: url(newtabbgimg/dark_geometric.png) !important;
+	background-size: cover !important;
 	background-color: #2A2A2E !important; /*to prevent white flicker during ntp/home page load*/
      }
 }  
