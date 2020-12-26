@@ -1,0 +1,56 @@
+.pip-wrapper[position="top"] {
+    top: 10px !important;
+    left: 25px !important;
+	
+}
+/*new tab page coloring*/
+@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home) {
+.context-menu-button.icon{
+fill: #FF1E00 !important;}
+
+body {
+	--newtab-background-color: #2A2A2E !important;
+	--newtab-border-primary-color: #4E4E4C !important;
+	--newtab-border-secondary-color: #282824 !important;
+	--newtab-card-background-color: #000 !important;
+	--newtab-contextmenu-background-color: #060605 !important;
+	--newtab-element-active-color: rgba(215, 215, 219, 0.6) !important;
+	--newtab-element-hover-color: #12120F !important;
+	--newtab-icon-primary-color: rgba(243, 243, 242, 0.8) !important;
+	--newtab-inner-box-shadow-color: rgba(255, 255, 255, 0.1) !important;
+	--newtab-modal-color: #000 !important;
+	--newtab-overlay-color: rgba(18, 18, 15, 0.8) !important;
+	--newtab-search-wordmark-color: #FF1E00 !important;
+	--newtab-search-border-color: rgba(249, 249, 250, 0.02) !important;
+	--newtab-search-dropdown-color: #000 !important;
+	--newtab-search-dropdown-header-color: #060605 !important;
+	--newtab-search-icon-color: rgba(243, 243, 242, 0.4) !important;
+	--newtab-section-active-contextmenu-color: #F3F3F2 !important;
+	--newtab-section-header-text-color: #8C8C8C !important;
+	--newtab-section-navigation-text-color: #8C8C8C !important;
+	--newtab-snippets-background-color: #000 !important;
+	--newtab-text-conditional-color: #B5B5B0 !important;
+	--newtab-text-primary-color: #F3F3F2 !important;
+	--newtab-text-secondary-color: #8C8C8C !important;
+	--newtab-textbox-background-color: #202023 !important;
+	--newtab-textbox-border: rgba(243, 243, 242, 0.2) !important;
+	--newtab-textbox-focus-boxshadow: 0 0 0 1px #0060DF, 0 0 0 4px rgba(10, 132, 255, 0.3) !important; 
+	--newtab-topsites-background-color: rgba(255, 255, 255, 0.6) !important;
+	--newtab-topsites-label-color: #F3F3F2 !important; /*#F3F3F2*/
+	--trailhead-cards-background-color: #12120F !important;
+	--trailhead-header-text-color: #D4DEA9 !important;
+	background-image: url(dark_geometric.png) !important ;
+	background-size: cover !important ;
+	background-color: #2A2A2E !important; /*to prevent white flicker during ntp/home page load*/
+     }
+}  
+/*dark scrollbar everywhere css*/
+:root{
+	scrollbar-face-color: rgb(94, 94, 94, 0.55);
+	scrollbar-track-color: rgb(255, 255, 255, .0);
+	scrollbar-color: rgb(94, 94, 94, 0.55) rgb(255, 255, 255, .0);
+	scrollbar-width: thin;
+	
+}
+
+

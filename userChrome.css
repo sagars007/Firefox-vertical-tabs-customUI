@@ -1,0 +1,839 @@
+#main-window { background-color: #111111 !important; 
+		color: #fff !important; }
+/*#323234 for default dark mode theme*/
+
+#urlbar[open="true"] #urlbar-background {
+  background-color: rgb(68, 68, 68, 0.58) !important;
+}
+
+#urlbar[focused=true] {
+	border: 1.5px solid rgb(255,30,0) !important;
+	border-radius: 4.5px;
+  background-color: rgb(68, 68, 68, 0.58) !important;
+}
+#urlbar #urlbar-background {
+    border: none !important;
+background: none !important;
+}
+
+:root[inFullscreen] #nav-bar{
+border-inline: none !important;
+}
+
+
+/* Hide main tabs toolbar */
+
+:root[tabsintitlebar]{
+  --uc-window-control-width: 138px; /* Space reserved for window controls */
+  //--uc-window-drag-space-width: 24px; /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
+}
+
+#nav-bar{
+  border-inline: var(--uc-window-drag-space-width,0px) solid transparent;
+  border-inline-style: solid !important;
+  border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-width,0px));
+  background: none !important;
+  padding-top: 0px !important;
+}
+
+
+
+:root{ --uc-toolbar-height: 32px; }
+
+:root:not([uidensity="compact"]){--uc-toolbar-height: 38px}
+
+:root {
+  --tabs-border: transparent !important;
+  --chrome-content-separator-color: none !important;
+  --toolbarbutton-border-radius: 4.5px !important;
+  --lwt-toolbar-field-border-color: rgba(249, 249, 250, 0.2) !important;
+  --urlbar-separator-color: var(--lwt-toolbar-field-border-color) !important;
+  --toolbar-field-focus-border-color: none !important;
+}
+
+#TabsToolbar{ visibility: collapse !important }
+
+:root:not([inFullscreen]) #nav-bar{
+  margin-top: calc(0px - var(--uc-toolbar-height));
+}
+
+#toolbar-menubar{
+  min-height:unset !important;
+  height:var(--uc-toolbar-height) !important;
+  position: relative;
+}
+
+#main-menubar{
+  -moz-box-flex: 1;
+  background-color: var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor);
+  background-clip: padding-box;
+  border-right: 30px solid transparent;
+  border-image: linear-gradient(to left, transparent, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor) 30px) 20 / 30px
+}
+
+#toolbar-menubar:not([inactive]){ z-index: 2 }
+#toolbar-menubar[inactive] > #menubar-items {
+  opacity: 0;
+  pointer-events: none;
+  margin-left: var(--uc-window-drag-space-width,0px)
+}
+
+.titlebar-placeholder {
+  border: none !important;
+}
+
+.titlebar-buttonbox-container .titlebar-button .toolbarbutton-icon {
+    stroke: #fff;
+}
+
+.titlebar-buttonbox-container .titlebar-button:hover {
+    background: none !important;
+}
+
+.titlebar-buttonbox-container .titlebar-button:hover .toolbarbutton-icon {
+    stroke: #04d9ff;
+}
+
+.titlebar-buttonbox-container .titlebar-button.titlebar-close .toolbarbutton-icon {
+    stroke: #ff073a;
+}
+
+.titlebar-buttonbox-container .titlebar-button.titlebar-close:hover .toolbarbutton-icon {
+    stroke: #ff073a;
+}
+
+
+/*** For Tree Style Tabs ***/
+ 
+/* Sidebar min and max width removal */
+ 
+#sidebar {
+    max-width: none !important;
+    min-width: 0px !important;
+}
+ 
+/* Hide splitter, when using Tree Style Tab. */
+ 
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] + #sidebar-splitter {
+    display: none !important;
+}
+ 
+/* Hide sidebar header, when using Tree Style Tab. */
+ 
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    visibility: collapse;
+}
+ 
+#sidebar-box {
+    -moz-appearance: -moz-mac-vibrancy-dark !important;
+}
+ 
+/* Shrink sidebar until hovered, when using Tree Style Tab. */
+ 
+:root {
+    --thin-tab-width: 30px;
+    --wide-tab-width: 200px;
+}
+ 
+#sidebar-box:not([sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]) {
+    min-width: var(--wide-tab-width) !important;
+    max-width: none !important;
+}
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
+    position: relative !important;
+    transition: all 200ms !important;
+    min-width: var(--thin-tab-width) !important;
+    max-width: var(--thin-tab-width) !important;
+	
+}
+#sidebar-box[sidebarcommand=treestyletab_piro_sakura_ne_jp-sidebar-action]:hover {
+    transition-delay: 800ms !important;
+    /*transition: all 200ms !important;*/
+    min-width: var(--wide-tab-width) !important;
+    max-width: var(--wide-tab-width) !important;
+    margin-right: calc((var(--wide-tab-width) - var(--thin-tab-width)) * -1) !important;
+    z-index: 1;
+}
+
+
+/*tooltip dark theme*/
+tooltip {
+	-moz-appearance: none !important;
+  color: #fff !important;
+  background-color: #444 !important;
+	border-color: #000 !important;
+}
+/*making right arrow of context menus visible*/ 
+.menu-right{ filter: invert(100%)
+}
+
+
+/*showing thin nav-title-bar (title bar text in nav bar) only in maximized mode*/
+/* Disabled in fullscreen and restore down mode due to insufficient space & overlapping other elements*/
+@-moz-document url(chrome://browser/content/browser.xhtml){
+  :root[sizemode="maximized"] > head{
+    display: block;
+    position: fixed;
+    right: 220px;	/*center text w.r.t nav bar*/
+    width: calc(100vw - 440px);  /*Window width - window control width - menuitem (English) width*/
+    text-align: center;
+    font-size: 11.5px;
+    z-index: 1;
+    pointer-events: none;
+  }
+    
+  head > *{ display: none }
+  head > title{
+    display: -moz-inline-box;
+    padding-top: 1px;
+    max-width: 50vw;
+    overflow-x: -moz-hidden-unscrollable;
+    text-overflow: ellipsis;
+    color: #04d9ff;
+  }
+  @media (-moz-os-version:windows-win10){
+    :root[sizemode="maximized"] > head > title { padding-top: 6.32px}
+    //:root:not([sizemode="maximized"]) > head > title { padding-top: 0px}	
+ 
+  }
+/*disabling thin nav-title-bar (title bar text in nav bar) in compact mode and when system title bar is enabled*/  
+   :root[tabsintitlebar="true"] > head > title { display: -moz-inline-box !important; }      
+   :root:not([tabsintitlebar="true"]) > head > title { display: none !important; }
+   :root[uidensity="compact"] > head > title { display: none !important;}
+}
+/*to remove white border next to hamburger menu button*/
+#PanelUI-button { border-image-slice: 0 !important; }
+
+#PersonalToolbar{
+background-color: rgb(68, 68, 68, 0.65) !important;
+}
+
+/*for hiding bookmarks bar*/
+#PersonalToolbar{
+  --uc-bm-height: 20px; /* Might need to adjust if the toolbar has other buttons */
+  --uc-bm-padding: 4px; /* Vertical padding to be applied to bookmarks */
+  --uc-autohide-toolbar-delay: 250ms; /* The toolbar is hidden after 0.6s */
+  
+  /* 0deg = "show" ; 90deg = "hide" ;  Set the following to control when bookmarks are shown */
+  --uc-autohide-toolbar-focus-rotation: 0deg; /* urlbar is focused */
+  --uc-autohide-toolbar-hover-rotation: 0deg; /* cursor is over the toolbar area */
+}
+
+:root[uidensity="compact"] #PersonalToolbar{ --uc-bm-padding: 1px }
+:root[uidensity="touch"] #PersonalToolbar{ --uc-bm-padding: 7px }
+
+#PersonalToolbar:not([customizing]){
+  position: relative;
+  margin-bottom: calc(0px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
+  transform: rotateX(90deg);
+  transform-origin: top;
+  transition: transform 135ms linear var(--uc-autohide-toolbar-delay) !important;
+  z-index: 1;
+}
+
+#PlacesToolbarItems > .bookmark-item{ padding-block: var(--uc-bm-padding) !important; }
+
+#nav-bar:focus-within + #PersonalToolbar{
+  transition-delay: 100ms !important;
+  transform: rotateX(var(--uc-autohide-toolbar-focus-rotation,0));
+}
+
+#navigator-toolbox:hover > #PersonalToolbar{
+  transition-delay: 100ms !important;
+  transform: rotateX(var(--uc-autohide-toolbar-hover-rotation,0));
+}
+
+#navigator-toolbox:hover > #nav-bar:focus-within + #PersonalToolbar {  
+  transform: rotateX(0);
+}
+
+/* Reset form elements appereance */
+panel richlistbox,
+panel tree,
+panel button,
+panel menulist,
+panel textbox,
+menupopup,
+menu,
+menuitem {
+    -moz-appearance: none !important;
+}
+
+/* Spacing between menu items */
+menulist,
+menuitem,
+menu {
+    min-height: 2.2em;
+}
+
+/* ? */
+panel menulist {
+    border: 1px solid transparent;
+}
+/* Menus */
+#sidebarMenu-popup toolbarbutton,
+panel richlistbox,
+panel tree,
+panel button,
+panel menulist,
+panel textbox,
+menupopup:not(#BMB_bookmarksPopup),
+#main-menubar > menu > menupopup,
+#context-navigation {
+    color: #fff !important;
+    background-color: #444 !important;
+    border-color: #000 !important;
+}
+#sidebarMenu-popup toolbarbutton:hover,
+panel treechildren::-moz-tree-row(selected),
+panel button:hover,
+menu:hover,
+menu[_moz-menuactive],
+menu[open],
+menuitem:hover,
+menuitem[_moz-menuactive] {
+    background-color: rgb(40, 96, 142) !important;
+    color: #fff !important;
+}
+
+menu[disabled="true"] {
+    color: rgb(135, 135, 135) !important;
+}
+menuitem[disabled="true"] {
+    color: rgb(135, 135, 135) !important;
+}
+.subviewbutton.subviewbutton-iconic.pageAction-panel-button[disabled="true"] {
+    color: rgb(135, 135, 135) !important;
+}
+
+menulist > menupopup > menuitem,
+menulist > menupopup > menucaption,
+menulist > menupopup > menu {
+  color: #fff !important;
+}
+/*making dropmarker white in places like site info and edit bookmark panel*/
+dropmarker{
+    filter: invert(100%)
+}
+
+#editBookmarkPanel label {
+    color: #fff !important;
+}
+#editBookmarkPanel input {
+    -moz-appearance: none;
+    background-color: #444 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+    border-radius: 3px !important;
+    transition: background-color, border-color 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+#editBookmarkPanel input:focus {
+    background-color: #444 !important;
+    border-color: rgb(255, 30, 0) !important;
+}
+
+
+/* Popup panels (more tools... , open menu) */
+panel panelview {
+    color: #fff !important;
+    background-color: #444  !important;
+}
+.panel-arrowcontent {
+	color: #fff !important;
+    background-color: #444  !important;
+}
+.panel-arrowcontainer .panel-arrowbox .panel-arrow {
+    fill: rgb(255, 30, 0) !important;
+}
+.panel-arrowcontainer .panel-arrowcontent {
+    	color: #fff !important;
+
+}
+
+/* Context navigation buttons (right-click page) */
+#context-navigation menuitem {
+    color: #fff !important;
+    background: none !important;
+    transition: color 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+#context-navigation menuitem:hover {
+    color: rgb(255, 30, 0) !important;
+}
+/*separator line under nav buttons in right click page menu*/
+#context-sep-navigation{
+    display: none !important;
+}
+
+/* Customize button in more extensions */
+/*#overflowMenu-customize-button {
+    background-color: #444 !important;
+    border: 1px solid #000 !important;
+    border-radius: 3px !important;
+    margin: 4px !important;
+    color: #fff !important;
+    transition: background-color, border-color 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}*/
+/*#overflowMenu-customize-button:hover {
+    background-color: #444 !important;
+    border: 1px solid var(--moonlight-blue) !important;
+}*/
+
+
+/* Change bookmark icon colors */
+/* Standard folder -- on Toolbar and Menus */
+#PlacesToolbarItems toolbarbutton[container="true"] .toolbarbutton-icon,
+:-moz-any(
+#PlacesToolbarItems,
+#PlacesChevronPopup,
+#BMB_bookmarksPopup,
+#bookmarksMenu) menu[container="true"] > .menu-iconic-left > .menu-iconic-icon,
+/* Standard folder -- in Sidebar, Library, Add/Edit Bookmark dialog */
+:-moz-any(
+#bookmarks-view, 
+#editBMPanel_folderTree, 
+#placesList, 
+#placeContent) treechildren::-moz-tree-image(container), 
+#editBMPanel_folderMenuList > .menulist-label-box > .menulist-icon,
+#editBMPanel_folderMenuList menupopup menuitem {
+    fill: #fff !important;
+}
+
+#protections-popup-no-trackers-found-description{
+    color: #fff !important;}
+
+#protections-popup-trackers-blocked-counter-description{
+    color: #fff !important;
+}
+
+#protections-popup-footer-protection-type-label{
+    color: #fff !important;
+}
+
+#protections-popup-blocking-section-header{
+    color: #fff !important;
+}
+
+#protections-popup-not-blocking-section-description{
+    color: #fff !important;
+}
+
+#protections-popup-not-blocking-section-why{
+    color: rgb(135, 135, 135) !important;
+}
+
+#protections-popup-not-found-section-header{
+    color: #fff !important;
+}
+.protections-popup-category.blocked.notFound{
+    color: #fff !important; 
+    fill: #fff !important; 
+}
+
+#identity-popup-permission-empty-hint{
+    color: #fff !important;
+}
+#identity-popup-permission-reload-hint{
+    color: #fff !important;
+}
+
+.identity-popup-permission{
+    color: #fff !important;
+}
+
+.identity-popup-permission-state-label{
+      color: #fff !important;
+}
+
+label.subview-subheader{
+    color: #fff !important;
+}
+
+#synced-tabs-client-0{
+    color: #fff !important;
+}
+
+label.PanelUI-remotetabs-notabsforclient-label{
+    color: #fff !important;
+}
+
+#fxa-menu-header-description{
+   color: #fff !important; 
+}
+
+#fxa-menu-header-title{
+   color: #fff !important; 
+}
+
+#fxa-menu-avatar{
+    fill: #fff !important;
+}
+/*dark coloring of bookmarks toolbar button-> folder menu popup*/
+.menupopup-arrowscrollbox{
+    color: #fff !important;
+    background-color: #444  !important;
+}
+
+
+/*SIDEBAR DARK*/
+#sidebar-search-container,
+#bookmarks-view,
+#historyTree,
+[lwt-sidebar] {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+/*synced tabs sidebar dark color*/
+@-moz-document url("chrome://browser/content/syncedtabs/sidebar.xhtml"){
+  body{ background-color: #444;
+    color: #fff !important; }
+}
+/*synced tabs sidebar dark color*/
+.content-container {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+/*remove sidebar border splitting bar and webpage*/
+#sidebar-splitter {
+  border: none !important;
+}
+
+
+#sidebar-box {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+#sidebar-box #sidebar-header {
+  border: none !important;
+}
+#sidebar-box #sidebar-header #sidebar-switcher-target {
+  transition: color 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+#sidebar-box #sidebar-header #sidebar-switcher-target:hover,
+#sidebar-box #sidebar-header #sidebar-switcher-target.active {
+    background-color: rgb(40, 96, 142) !important;
+    color: #fff !important;
+}
+#sidebar-box #sidebar-header #sidebar-close {
+  fill-opacity: 0 !important;
+  color: #fff !important;
+  transition: color 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+#sidebar-box #sidebar-header #sidebar-close:hover {
+  fill-opacity: 0 !important;
+    color: rgb(227, 31, 5) !important;
+}
+
+#sidebar-search-container #search-box {
+  -moz-appearance: none !important;
+  background-color: #444 !important;
+  border: 1px solid #fff !important;
+  color: #fff !important;
+  border-radius: 3px !important;
+  transition: background-color, border-color 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+#sidebar-search-container #search-box:focus-within {
+  border-color: rgb(227, 31, 5)  !important;
+  background-color: #444 !important;
+}
+
+#sidebar-search-container #viewButton {
+  background-color: none !important;
+  border: none !important;
+  border-radius: 3px !important;
+  color: #fff !important;
+  transition: background-color, border-color 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+#sidebar-search-container #viewButton:hover {
+  background-color: rgb(40, 96, 142) !important; 
+  color: #fff !important;
+}
+/*dark scrollbar in sidebar and other ui elements*/
+.panel-subview-body{
+  scrollbar-face-color: rgb(94, 94, 94);
+  scrollbar-track-color: rgb(57, 59, 65);
+  scrollbar-color: rgb(94, 94, 94) rgb(57, 59, 65);
+  scrollbar-width: thin;
+ }
+ #permList, scrollbar{
+  scrollbar-face-color: rgb(94, 94, 94);
+  scrollbar-track-color: rgb(57, 59, 65);
+  scrollbar-color: rgb(94, 94, 94) rgb(57, 59, 65);
+  scrollbar-width: thin;
+ }
+
+
+/*file-status label color in downloads popup menu*/
+label.status-text.status-full{
+    color: darkgray !important;
+}
+
+label.status-text.status-open{
+    color: darkgray !important;
+}
+
+label.status-text.status-retry{
+    color: darkgray !important;
+}
+
+label.status-text.status-show{
+    color: darkgray !important;
+}
+
+.private-browsing-indicator {display: none !important;}
+.accessibility-indicator    {display: none !important;}
+
+/*Megabar disbaled*/
+#urlbar[breakout][breakout-extend] {
+top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+left: 0 !important;
+width: 100% !important;
+}
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+animation-name: none !important;
+box-shadow: none !important;
+}
+#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+height: var(--urlbar-height) !important;
+width: 100% !important;
+padding-block: 0 !important;
+padding-inline: 0 !important;
+transition: none !important;
+}
+.urlbarView {
+margin-inline: 0 !important;
+width: 100% !important;
+}
+.urlbarView-row {
+padding-block: 0 !important;
+}
+.urlbarView-type-icon {
+min-width: 16px !important;
+height: 16px !important;
+margin-bottom: 0 !important;
+margin-inline-start: 0 !important;
+}
+.urlbarView-favicon {
+margin-inline-start: 25px !important;
+}
+}
+/*change color of downloads button*/
+#downloads-button[attention="success"] > .toolbarbutton-badge-stack > #downloads-indicator-icon {
+  display: visible !important;
+}
+
+/* During a download, force display of progress bar */
+#downloads-button[attention="success"] > .toolbarbutton-badge-stack > #downloads-indicator-progress-area 
+{
+  display: -moz-box !important;
+  visibility: visible !important;
+}
+
+/* After something have successfully completed downloading, set the color of the download icon*/
+#downloads-button[attention="success"]> .toolbarbutton-badge-stack > #downloads-indicator-anchor > #downloads-indicator-icon,
+#downloads-button[attention="success"]> .toolbarbutton-badge-stack > #downloads-indicator-anchor > #downloads-indicator-progress-outer
+{
+  fill: #FF1E00 !important;
+}
+
+/* Sets the color of the animated arrow that appears when a download is starting*/
+#downloads-button[notification="start"]>.toolbarbutton-badge-stack > #downloads-indicator-anchor > #downloads-indicator-icon,
+#downloads-notification-anchor[notification="start"]>.toolbarbutton-badge-stack > #downloads-indicator-notification {
+   fill: #FF1E00 !important;
+}
+
+/*Set the color of the download icon as something is downloading*/
+#downloads-button[progress]>.toolbarbutton-badge-stack > #downloads-indicator-anchor > #downloads-indicator-icon,
+#downloads-button[progress]>.toolbarbutton-badge-stack > #downloads-indicator-anchor > #downloads-indicator-progress-outer {
+  fill: #04d9ff !important;
+}
+
+/* Set the color for the progress bar as something is downloading */
+#downloads-button>.toolbarbutton-badge-stack > #downloads-indicator-anchor > #downloads-indicator-progress-outer > #downloads-indicator-progress-inner {
+  fill: #FF1E00 !important;
+}
+
+/* The default color of the download button */
+#downloads-button,
+#downloads-button[indicator="true"]:not([attention="success"]) #downloads-indicator-icon{
+  display: -moz-box !important;
+  visibility: visible !important;
+  fill: #F7FDFB !important;
+}
+
+#downloads-button:[attention="failed"]> .toolbarbutton-badge-stack > #downloads-indicator-anchor > #downloads-indicator-icon,
+#downloads-button:[attention="failed"]> .toolbarbutton-badge-stack > #downloads-indicator-anchor > #downloads-indicator-progress-outer
+{
+  fill: yellow !important;
+}
+/*bookmarks star color change*/
+#star-button[starred] {
+	fill-opacity: 1;
+	fill: #FF1E00 !important;
+}
+/*urlbar some icons color change*/
+.urlbarView-row[type=bookmark] .urlbarView-type-icon {
+fill: #FF1E00 !important;
+}
+
+.urlbarView-row[type=switchtab] .urlbarView-type-icon {
+fill: #04d9ff !important;
+}
+
+.urlbarView-row[type=switchtab] .urlbarView-action {
+color: #04d9ff !important;
+}
+/*.urlbarView-row[type=search] .urlbarView-action {
+color: #04d9ff !important;
+}*/
+
+#urlbar-engine-one-off-item-tabs{
+    fill: #04d9ff !important;
+}
+
+#urlbar-engine-one-off-item-history{
+    fill: #FF1E00 !important;
+}
+
+#urlbar-engine-one-off-item-bookmarks{
+    fill: #FF1E00 !important;
+}
+
+#urlbar-anon-search-settings-compact.searchbar-engine-one-off-item{
+   color: yellow !important;
+}
+
+#urlbar-container [class*="icon"]:hover,
+#urlbar-container [id*="icon"]:hover,
+#urlbar-container [class*="icon"][open="true"],
+#urlbar-container [id*="icon"][open="true"]
+{
+    fill: #FF1E00 !important;
+    fill-opacity: 1 !important;
+}
+
+#urlbar-zoom-button:hover {
+    border-color: #FF1E00 !important;
+}
+/* in customize menu, change color of top arrow of overflow customization menu  */
+.panel-arrow{
+    fill: #FF1E00 !important;
+}
+
+/*Findbar custom dark*/
+findbar {
+    border-color: #FF1E00 !important; }
+
+findbar .findbar-container {
+    background-color: #444444 !important;
+    color: white !important;
+}
+findbar .findbar-closebutton {
+    background-color: #444444 !important;
+}
+findbar .findbar-closebutton .toolbarbutton-icon {
+    fill: white !important;
+    transition: fill 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+findbar .findbar-closebutton:hover .toolbarbutton-icon {
+    fill: red !important;
+    fill-opacity: 0 !important;
+}
+findbar .findbar-button {
+    /*border: 1px solid  !important;*/
+    background-color: none !important;
+    color: white !important;
+    border-radius: 3px !important;
+    transition: background-color, border-color 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+findbar .findbar-button:hover
+{
+    /*background: rgb(4, 217, 255, 0.5) !important;*/
+    /*border: 1px solid  !important;*/
+}
+
+findbar .findbar-button[checked="true"] {
+    background: rgb(4, 217, 255, 0.7) !important;
+    color: white !important;
+    /*border: 1px solid  !important;*/
+}
+
+findbar .findbar-textbox {
+    background-color: #444444 !important;
+    border: 1px solid white !important;
+    color: white !important;
+    border-radius: 3px !important;
+    transition: background-color, border-color 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+
+findbar .findbar-textbox:focus {
+    border-color: rgb(255,30,0) !important;
+    background-color: #444444 !important;
+}
+
+findbar .findbar-find-previous,
+findbar .findbar-find-next{
+    background-color: #444444 !important;
+    border: none !important;
+}
+
+findbar .findbar-find-previous .toolbarbutton-icon,
+findbar .findbar-find-next .toolbarbutton-icon {
+    fill: rgb(255,30,0) !important;
+    transition: fill 300ms cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+
+findbar .findbar-find-previous .toolbarbutton-icon[disabled="true"],
+findbar .findbar-find-next .toolbarbutton-icon[disabled="true"] {
+    fill: rgb(135, 135, 135) !important;
+    opacity: 1 !important;
+}
+
+findbar .findbar-find-previous:not([disabled="true"]):hover .toolbarbutton-icon,
+findbar .findbar-find-next:not([disabled="true"]):hover .toolbarbutton-icon {
+    fill: rgb(4, 217, 255) !important;
+}
+
+/*hide bookmarks text and increase spacing between favicons in bkmks toolbar*/
+#personal-bookmarks .bookmark-item > .toolbarbutton-text {
+ display:none !important;
+}
+#personal-bookmarks .bookmark-item > .toolbarbutton-icon {
+margin-right: 3px !important;
+margin-left: 3px !important;
+}
+/*search toolbar colors*/
+.search-panel-header.search-panel-current-engine{
+    background-color: rgb(4, 217, 255) !important;
+        color: #000 !important;
+}
+
+#PopupSearchAutoComplete .search-panel-one-offs-header{
+  background-color: rgb(255,30,0,0.83) !important;
+        color: #000 !important;
+}
+
+#PopupSearchAutoComplete .search-panel-one-offs-container{
+      background-color: #444444 !important;
+}
+
+#search-container #searchbar:focus-within {
+  border-color: rgb(255,30,0)  !important;
+    background-color: rgb(68, 68, 68, 0.58) !important;
+}
+
+#search-container #searchbar {
+  background: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
