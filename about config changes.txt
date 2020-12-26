@@ -1,6 +1,6 @@
--about:config > browser.urlbar.update1 = false
+browser.urlbar.update1 = false
 
--in about:config set ui.systemUsesDarkTheme to 1
+set ui.systemUsesDarkTheme to 1
 
 -Change in about config for smooth edge like scrolling:
 general.smoothScroll.msdPhysics.enabled = true
@@ -18,3 +18,6 @@ apz.frame_delay.enabled = false
 -Full screen fade faster:
 full-screen-api.transition-duration.enter = 50 50
 full-screen-api.transition-duration.leave = 50 50
+
+-always show firefox logo in default newtab page:
+browser.newtabpage.activity-stream.logowordmark.alwaysVisible = true
