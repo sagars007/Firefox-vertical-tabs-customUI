@@ -1,0 +1,156 @@
+/* Hide border on tab bar, force its state to 'scroll', adjust margin-left for width of scrollbar. */ 
+#tabbar { border: 0; overflow-y: scroll !important; margin-left: -18px !important; scrollbar-width: auto; }
+ 
+/* Hide .twisty and adjust margins */
+tab-item .twisty {
+    visibility: hidden;
+    margin-left: -13px;
+}
+ 
+/* Push tab labels slightly to the right so they're completely hidden in collapsed state */
+tab-item .label {
+    margin-left: 7px;
+}
+
+ 
+/* Hide close buttons on tabs. */
+tab-item .closebox {
+    visibility: collapse;
+}
+
+tab-item .closebox:hover{
+    background-color: red !important;
+}
+ 
+tab-item:hover .closebox {
+    visibility: initial;
+}
+
+
+.newtab-action-selector-anchor {
+    border: none !important;
+    margin-right: 30px;
+    margin-top: 5px;
+}
+
+ 
+.newtab-button-box {
+  margin-left: 0px;
+}
+
+.newtab-button:hover{
+  background-color: rgb(103, 103, 103, 0.7) !important;
+}
+
+.newtab-button{
+   border-bottom: none !important;
+  background: none !important;
+  //display: none !important;
+  padding: 5px 0 !important;
+}
+
+
+ 
+/* Hide sound playing/muted button. */
+.sound-button::before {
+    display: none !important;
+}
+ 
+/* ##### TAB COLORS ########################### */
+ 
+#tabbar {
+    border-right: 1px solid #1d1d1d;
+    box-shadow: none !important;
+    //background: #323234 !important; /*enabling this will override theme bg img and apply solid color only*/
+}
+
+#background {
+
+  background-color: #111111 !important;/*change bg img color*/
+ 
+}
+tab-item {
+  box-shadow: none !important;
+  background: none !important;
+  border: none;
+}
+
+tab-item.active {
+  background-color: rgb(4, 217, 255, 0.8) !important;
+}
+
+tab-item.active .label-content {
+  color: #000 !important;
+}
+
+tab-item.active:hover {
+  background-color: rgb(4, 217, 255, 0.8) !important;
+}
+
+tab-item:hover {
+   filter: opacity(80%) drop-shadow(0px 0px 0px #3498DB);
+   background-color: rgb(103, 103, 103, 0.7) !important;
+}
+ 
+/* Adjust style for tab that has sound playing. */
+tab-item.sound-playing .favicon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background: #FFFFFF;
+    animation: pulse 2s ease-out 0s infinite;
+    z-index: -1;
+    opacity: 0;
+}
+ 
+/* Adjust style for tab that is muted. */
+tab-item.muted {
+    opacity: 0.5;
+}
+ 
+/* Better alignment of Favicons when collapsed */
+tab-item[data-level][data-level="0"] {
+  margin-left: 2px !important;
+}
+tab-item[data-level][data-level="1"] {
+  margin-left: 2px !important;
+}
+tab-item[data-level][data-level="2"] {
+  margin-left: 2px !important;
+}
+tab-item[data-level][data-level="3"] {
+  margin-left: 2px !important;
+}
+tab-item[data-level][data-level="4"] {
+  margin-left: 2px !important;
+}
+tab-item[data-level][data-level="5"] {
+  margin-left: 2px !important;
+}
+tab-item[data-level][data-level="6"] {
+  margin-left: 2px !important;
+}
+tab-item[data-level][data-level="6"] {
+  margin-left: 2px !important;
+}
+
+.tab.private-browsing              { background-color: #504050 !important; }
+.tab.private-browsing.active       { background-color: #9060B0 !important; }
+.tab.private-browsing.active .label-content {
+  color: #fff !important;
+}
+.tab.private-browsing:hover        { background-color: #706070 !important; }
+.tab.private-browsing.active:hover { background-color: #9060B0 !important; }
+
+.tab.pinned { 
+  background-color: rgb(255, 30, 0, 0.4) !important; 
+}
+.tab.pinned.active { background-color: rgb(4, 217, 255, 0.8) !important;}
+.tab.pinned.active:hover { background-color: rgb(4, 217, 255, 0.8) !important;}
+
+.tab.unread {
+  background-color: rgb(255, 255, 0, 0.43) !important; }
+
+.tab.unread .label-content { font-style: italic !important; }
