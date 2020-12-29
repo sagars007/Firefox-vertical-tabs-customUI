@@ -1,0 +1,2 @@
+to add img in readme.md:  
+![screenshot](ss/sample-screenshot.jpg)
