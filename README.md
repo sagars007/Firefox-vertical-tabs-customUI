@@ -5,6 +5,7 @@
 **Works best in Firefox Quantum(Photon). Not tested for latest proton UI changes.**
 
 _Dark theme used - Light/dark grey & orange theme. Available from the Firefox add-ons store.
+
 UI may not be displayed correctly with other themes.
 Tree style tabs extenstion required._
 
