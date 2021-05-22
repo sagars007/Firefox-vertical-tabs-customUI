@@ -1,6 +1,7 @@
-![screenshot](ss/normal_thintt.jpg) Normal mode
+![screenshot](ss/normal_thintt.jpg)                                           Normal mode
 
-![screenshot](ss/compact_webview.png) Compact mode
+![screenshot](ss/compact_webview.png)                                         Compact mode
+
 
 **Works best in Firefox Quantum(Photon). Not tested for latest proton UI changes.**
 
