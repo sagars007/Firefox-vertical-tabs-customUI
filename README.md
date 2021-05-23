@@ -7,6 +7,7 @@
 
 _Dark theme used - Light/dark grey & orange theme. Available from the Firefox add-ons store._
 _UI may not be displayed correctly with other themes._
+
 _Tree style tabs extenstion required._
 
 How to add stylesheets: https://winaero.com/enable-loading-userchrome-css-usercontent-css-firefox/
