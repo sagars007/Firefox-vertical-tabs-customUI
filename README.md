@@ -3,7 +3,7 @@
 ![screenshot](ss/compact_webview.png) Compact mode
 
 
-**Works best in Firefox Quantum(Photon). Not tested for latest proton UI changes.**
+**Works best in Photon UI. Not tested with proton UI changes, but it is compatible.**
 
 _Dark theme used - Light/dark grey & orange theme. Available from the Firefox add-ons store._
 _UI may not be displayed correctly with other themes._
