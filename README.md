@@ -2,7 +2,7 @@
 
 ![screenshot](ss/compact_webview.png) Compact mode
 
-* Tabs expand on hover.
+-Tabs expand on hover.
 
 **Works best in Photon UI. Not tested with proton UI changes, but it is compatible.**
 
